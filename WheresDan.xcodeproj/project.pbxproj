@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6CA44C1F99655F001ECAC5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CA44B1F99655F001ECAC5 /* LoginViewController.swift */; };
+		0A6CA44E1F9966FE001ECAC5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CA44D1F9966FE001ECAC5 /* ForgotViewController.swift */; };
+		0A6CA4501F99670D001ECAC5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CA44F1F99670D001ECAC5 /* RegisterViewController.swift */; };
+		0A6CA4521F996CB3001ECAC5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6CA4511F996CB3001ECAC5 /* GoogleService-Info.plist */; };
 		0AC8EA591F981ADB005F2B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA581F981ADB005F2B2E /* AppDelegate.swift */; };
 		0AC8EA5B1F981ADB005F2B2E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA5A1F981ADB005F2B2E /* FirstViewController.swift */; };
 		0AC8EA5D1F981ADB005F2B2E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA5C1F981ADB005F2B2E /* SecondViewController.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A6CA44B1F99655F001ECAC5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A6CA44D1F9966FE001ECAC5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
+		0A6CA44F1F99670D001ECAC5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		0A6CA4511F996CB3001ECAC5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AC8EA551F981ADB005F2B2E /* WheresDan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheresDan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8EA581F981ADB005F2B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC8EA5A1F981ADB005F2B2E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +86,11 @@
 				0AC8EA5E1F981ADB005F2B2E /* Main.storyboard */,
 				0AC8EA611F981ADB005F2B2E /* Assets.xcassets */,
 				0AC8EA631F981ADB005F2B2E /* LaunchScreen.storyboard */,
+				0A6CA4511F996CB3001ECAC5 /* GoogleService-Info.plist */,
 				0AC8EA661F981ADB005F2B2E /* Info.plist */,
+				0A6CA44B1F99655F001ECAC5 /* LoginViewController.swift */,
+				0A6CA44D1F9966FE001ECAC5 /* ForgotViewController.swift */,
+				0A6CA44F1F99670D001ECAC5 /* RegisterViewController.swift */,
 			);
 			path = WheresDan;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC8EA651F981ADB005F2B2E /* LaunchScreen.storyboard in Resources */,
+				0A6CA4521F996CB3001ECAC5 /* GoogleService-Info.plist in Resources */,
 				0AC8EA621F981ADB005F2B2E /* Assets.xcassets in Resources */,
 				0AC8EA601F981ADB005F2B2E /* Main.storyboard in Resources */,
 			);
@@ -209,7 +222,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WheresDan/Pods-WheresDan-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -227,8 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A6CA44C1F99655F001ECAC5 /* LoginViewController.swift in Sources */,
 				0AC8EA5D1F981ADB005F2B2E /* SecondViewController.swift in Sources */,
 				0AC8EA591F981ADB005F2B2E /* AppDelegate.swift in Sources */,
+				0A6CA4501F99670D001ECAC5 /* RegisterViewController.swift in Sources */,
+				0A6CA44E1F9966FE001ECAC5 /* ForgotViewController.swift in Sources */,
 				0AC8EA5B1F981ADB005F2B2E /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
