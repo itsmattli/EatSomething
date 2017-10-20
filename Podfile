@@ -12,5 +12,6 @@ target 'WheresDan' do
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Auth'
   pod 'Firebase/Database'
+  pod 'FirebaseUI'
 
 end
