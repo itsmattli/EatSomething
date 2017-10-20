@@ -95,9 +95,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U0-tV-lPB">
                                 <rect key="frame" x="168.5" y="318" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="hIe-KF-hlR" eventType="touchUpInside" id="jXn-hZ-wB5"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-4X-88o">
-                                <rect key="frame" x="104" y="194" width="168" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TOS-4X-88o">
+                                <rect key="frame" x="88" y="193.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ZcJ-fW-UXR"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -116,11 +122,14 @@
                                     <action selector="onRegisterButtonClick:" destination="hIe-KF-hlR" eventType="touchUpInside" id="uqW-xg-3ak"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-OQ-brD">
-                                <rect key="frame" x="104" y="244" width="168" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpo-OQ-brD">
+                                <rect key="frame" x="87.5" y="243.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="H1Z-rf-ueT"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,6 +148,8 @@
                         <viewLayoutGuide key="safeArea" id="ISa-Ka-H7d"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="TOS-4X-88o" id="W8n-qE-Lhd"/>
+                        <outlet property="passwordTextField" destination="lpo-OQ-brD" id="jUj-mT-sG6"/>
                         <segue destination="h0a-me-Smj" kind="presentation" identifier="LoginToForgot" id="cb5-Lk-BwP"/>
                         <segue destination="xCi-28-R5E" kind="presentation" identifier="LoginToRegister" id="a0G-Vt-7Sm"/>
                     </connections>
@@ -155,8 +166,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-i4-JA4">
-                                <rect key="frame" x="113" y="219" width="149" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IM9-i4-JA4">
+                                <rect key="frame" x="87.5" y="220" width="200" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Gbp-fz-mN8"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -171,10 +185,14 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jew-Pw-K6x">
                                 <rect key="frame" x="113" y="318.5" width="148" height="30"/>
                                 <state key="normal" title="Send Password Reset"/>
+                                <connections>
+                                    <action selector="sendPasswordReset:" destination="h0a-me-Smj" eventType="touchUpInside" id="sAT-de-aDc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IM9-i4-JA4" firstAttribute="top" secondItem="BZw-on-K38" secondAttribute="top" constant="200" id="0qj-lG-9XU"/>
                             <constraint firstItem="jew-Pw-K6x" firstAttribute="centerY" secondItem="4Rx-BI-cxT" secondAttribute="centerY" id="5mD-38-5KN"/>
                             <constraint firstItem="IM9-i4-JA4" firstAttribute="centerY" secondItem="4Rx-BI-cxT" secondAttribute="centerY" constant="-100" id="ctc-8j-iGo"/>
                             <constraint firstItem="jew-Pw-K6x" firstAttribute="centerX" secondItem="4Rx-BI-cxT" secondAttribute="centerX" id="g36-Gl-eW8"/>
@@ -185,6 +203,7 @@
                         <viewLayoutGuide key="safeArea" id="BZw-on-K38"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="IM9-i4-JA4" id="SQA-zj-l4i"/>
                         <segue destination="hIe-KF-hlR" kind="presentation" identifier="ForgotToLogin" id="KTS-jy-Cbp"/>
                     </connections>
                 </viewController>
@@ -195,43 +214,68 @@
         <!--Register View Controller-->
         <scene sceneID="dSY-8L-RuQ">
             <objects>
-                <viewController definesPresentationContext="YES" id="xCi-28-R5E" userLabel="Register View Controller" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" id="xCi-28-R5E" userLabel="Register View Controller" customClass="RegisterViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQZ-lf-QTy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNe-l3-oFx">
-                                <rect key="frame" x="87" y="144" width="202" height="30"/>
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNe-l3-oFx">
+                                <rect key="frame" x="88" y="144" width="200" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Email" label="Email"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="RwZ-7u-5v2"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1r-Fm-f3M">
-                                <rect key="frame" x="87" y="194" width="202" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X1r-Fm-f3M">
+                                <rect key="frame" x="88" y="194" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="eQJ-G0-7uQ"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3W-He-jr1">
                                 <rect key="frame" x="170" y="568.5" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="onBackClick:" destination="jnE-qy-2ot" eventType="touchUpInside" id="eDM-a3-51X"/>
+                                    <action selector="onBackClick:" destination="xCi-28-R5E" eventType="touchUpInside" id="fSU-3p-s8E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-O9-GJE">
-                                <rect key="frame" x="159" y="343.5" width="57" height="30"/>
+                                <rect key="frame" x="159" y="393.5" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="register:" destination="xCi-28-R5E" eventType="touchUpInside" id="kTd-lE-ua1"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwv-xN-tTs">
-                                <rect key="frame" x="87" y="244" width="202" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cwv-xN-tTs">
+                                <rect key="frame" x="88" y="244" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="oqx-fu-3mm"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7v-6j-U9T">
+                                <rect key="frame" x="88" y="293.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="hIX-7G-YRd"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7v-6j-U9T">
-                                <rect key="frame" x="87" y="291" width="202" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgz-gw-waf">
+                                <rect key="frame" x="87.5" y="343.5" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ZdT-WE-TQ0"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -242,12 +286,14 @@
                             <constraint firstItem="LNe-l3-oFx" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="3E9-rD-RBR"/>
                             <constraint firstItem="Cwv-xN-tTs" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="4Ha-Oz-e9Z"/>
                             <constraint firstItem="v7v-6j-U9T" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="-25" id="4W2-T4-n7i"/>
-                            <constraint firstItem="8Fo-O9-GJE" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="25" id="5zb-BH-v2r"/>
                             <constraint firstItem="v7v-6j-U9T" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="AJx-qM-RIs"/>
+                            <constraint firstItem="8Fo-O9-GJE" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="75" id="AQR-5i-CyV"/>
+                            <constraint firstItem="fgz-gw-waf" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="Dwn-sh-AZD"/>
                             <constraint firstItem="Cwv-xN-tTs" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="-75" id="RBb-EW-Nh4"/>
                             <constraint firstItem="P3W-He-jr1" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="RSj-Y7-uTi"/>
                             <constraint firstItem="P3W-He-jr1" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="250" id="bfz-SH-khw"/>
                             <constraint firstItem="X1r-Fm-f3M" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="-125" id="f31-vj-YSL"/>
+                            <constraint firstItem="fgz-gw-waf" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="25" id="f4t-nL-r4y"/>
                             <constraint firstItem="X1r-Fm-f3M" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="prX-Ws-k4H"/>
                             <constraint firstItem="8Fo-O9-GJE" firstAttribute="centerX" secondItem="YQZ-lf-QTy" secondAttribute="centerX" id="stM-Pb-SIU"/>
                             <constraint firstItem="LNe-l3-oFx" firstAttribute="centerY" secondItem="YQZ-lf-QTy" secondAttribute="centerY" constant="-175" id="xQI-gy-xXx"/>
@@ -255,6 +301,11 @@
                         <viewLayoutGuide key="safeArea" id="qro-FK-5qg"/>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="v7v-6j-U9T" id="UmG-bV-6OE"/>
+                        <outlet property="confirmTextField" destination="Cwv-xN-tTs" id="CmG-Pr-ONy"/>
+                        <outlet property="emailTextField" destination="LNe-l3-oFx" id="UwE-sy-ngj"/>
+                        <outlet property="nameTextField" destination="fgz-gw-waf" id="ahn-6U-nvO"/>
+                        <outlet property="passwordTextField" destination="X1r-Fm-f3M" id="bQM-be-XKz"/>
                         <segue destination="hIe-KF-hlR" kind="presentation" identifier="RegisterToLogin" id="gwg-DE-DmM"/>
                     </connections>
                 </viewController>
@@ -266,7 +317,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
