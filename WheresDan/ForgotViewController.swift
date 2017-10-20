@@ -11,7 +11,7 @@ import UIKit
 class ForgotViewController: UIViewController {
 
     @IBAction func onBackClick(_ sender: Any) {
-        performSegue(withIdentifier: "LoginToForgot", sender: self)
+        performSegue(withIdentifier: "ForgotToLogin", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
