@@ -1,20 +1,20 @@
 //
-//  SearchViewController.swift
+//  CreateTableViewController.swift
 //  WheresDan
 //
-//  Created by Matthew Li on 2017-10-20.
+//  Created by Matthew Li on 2017-11-10.
 //  Copyright © 2017 Matthew Li. All rights reserved.
 //
+
 import UIKit
 import FirebaseDatabase
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+class CreateTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     
- 
     @IBOutlet weak var tableView: UITableView!
     
     let searchController = UISearchController(searchResultsController: nil)
-
+    
     
     struct User {
         var name = String()
@@ -26,22 +26,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var filteredUsers = [User]()
     var users = [User(name: "Niko", uid: "ausdfhajksfjkas", address: "Peer Tutor Area"),
                  User(name: "Kate", uid: "ausdfhajksfjkas", address: "Boston Pizza"),
-                 User(name: "Vincent", uid: "adsfasdfads", address: "Garbage Island"),
-                 User(name: "Dan", uid: "asdhfjkasd", address: "Shane's House")]
-   
+                 User(name: "Vincent", uid: "adsfasdfads", address: "Garbage Island")]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredUsers = users
         
-        tableView.dataSource = self
-        tableView.delegate = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -54,10 +49,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         self.tableView.reloadData()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,5 +68,4 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("Row \(indexPath.row) selected")
     }
 }
-
 
