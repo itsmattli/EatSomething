@@ -56,6 +56,7 @@ class RegisterViewController: UIViewController {
                     self.ref.child("users").child(user!.uid).setValue([
                         "email"         : self.emailTextField.text,
                         "age"           : nil,
+                        "gender"        : nil,
                         "weight"        : nil,
                         "activity"      : nil])
                     

@@ -10,32 +10,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Group-->
+        <!--Search-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="SearchViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="SearchViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TBm-Qd-p0b">
-                                <rect key="frame" x="0.0" y="20" width="375" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgk-J5-w3i">
+                                <rect key="frame" x="163" y="418.5" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0tI-e6-oAk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXw-ND-ggN">
+                                <rect key="frame" x="87" y="318" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Cq9-pg-mRQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TBm-Qd-p0b" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="25" id="4I1-w9-l5k"/>
-                            <constraint firstItem="TBm-Qd-p0b" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="CXL-oD-phG"/>
-                            <constraint firstItem="TBm-Qd-p0b" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="Qqq-UW-Hym"/>
-                            <constraint firstItem="TBm-Qd-p0b" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="20" id="Ryp-Og-qQO"/>
-                            <constraint firstItem="TBm-Qd-p0b" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hjO-9i-26A"/>
+                            <constraint firstItem="XXw-ND-ggN" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="BBh-DQ-77R"/>
+                            <constraint firstItem="XXw-ND-ggN" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="OzG-qr-rwS"/>
+                            <constraint firstItem="Pgk-J5-w3i" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="fBk-SD-9mi"/>
+                            <constraint firstItem="Pgk-J5-w3i" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="100" id="fZ6-KL-EnJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Create Group" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="tableView" destination="TBm-Qd-p0b" id="xGn-lA-ULu"/>
+                        <outlet property="queryText" destination="XXw-ND-ggN" id="y08-nB-n8H"/>
+                        <segue destination="4eU-oM-uyu" kind="presentation" identifier="SearchToLoading" id="O0a-R1-JeB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -45,40 +57,88 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="747.82608695652175" y="-321.19565217391306"/>
+            <point key="canvasLocation" x="788" y="-322"/>
         </scene>
-        <!--View Group-->
+        <!--Loading View Controller-->
+        <scene sceneID="aoq-7x-2Go">
+            <objects>
+                <viewController id="4eU-oM-uyu" customClass="LoadingViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="91b-mL-QYN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sNa-0U-d5Y">
+                                <rect key="frame" x="0.0" y="50" width="375" height="528"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="xzV-F4-Tmg"/>
+                    </view>
+                    <connections>
+                        <outlet property="resultsView" destination="sNa-0U-d5Y" id="XOW-00-Hfk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Yo-hM-6k7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1556" y="-326.08695652173918"/>
+        </scene>
+        <!--Recipe View Controller-->
+        <scene sceneID="XV4-ih-Ya8">
+            <objects>
+                <viewController id="Nvs-4w-3Ol" customClass="RecipeViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GLs-ue-yUM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0yE-HQ-3JM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Mr3-qs-qKd"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0yE-HQ-3JM" id="zqD-ny-Dww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAx-UP-Rx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="-322"/>
+        </scene>
+        <!--My Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ProfileController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="87" y="312" width="201" height="43"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4F-Az-mEa">
+                                <rect key="frame" x="149" y="73" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="80" y="363" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-0Y-5FT">
+                                <rect key="frame" x="170" y="529" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="e4F-Az-mEa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="r5D-5t-wDM"/>
+                            <constraint firstItem="e4F-Az-mEa" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-250" id="s00-NI-KRf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Group" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="second" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +147,7 @@
         <!--Login-->
         <scene sceneID="X8I-tD-AU3">
             <objects>
-                <viewController id="hIe-KF-hlR" userLabel="Login" customClass="LoginViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hIe-KF-hlR" userLabel="Login" customClass="LoginViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5DK-lK-d8h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +221,7 @@
         <!--Forgot View Controller-->
         <scene sceneID="05w-UE-CMd">
             <objects>
-                <viewController id="h0a-me-Smj" customClass="ForgotViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="h0a-me-Smj" customClass="ForgotViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Rx-BI-cxT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +273,7 @@
         <!--Register View Controller-->
         <scene sceneID="dSY-8L-RuQ">
             <objects>
-                <viewController definesPresentationContext="YES" id="xCi-28-R5E" userLabel="Register View Controller" customClass="RegisterViewController" customModule="WheresDan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" id="xCi-28-R5E" userLabel="Register View Controller" customClass="RegisterViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQZ-lf-QTy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,6 +373,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gwg-DE-DmM"/>
+        <segue reference="KTS-jy-Cbp"/>
     </inferredMetricsTieBreakers>
 </document>

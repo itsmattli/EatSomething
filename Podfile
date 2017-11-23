@@ -7,6 +7,7 @@ target 'EatSomething' do
 
   # Pods for WheresDan
   
+  pod 'Alamofire', '~> 4.5'
   pod 'SwiftFormat/CLI'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
