@@ -18,8 +18,6 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
-    @IBOutlet weak var addressTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
     var ref = Database.database().reference()
     
     @IBAction func register(_ sender: Any) {
@@ -39,10 +37,10 @@ class RegisterViewController: UIViewController {
             
             present(alertController, animated: true, completion: nil)
         } else {
-            let strSearch = self.nameTextField.text!
-            ref.child("users").queryOrdered(byChild:  "username").queryStarting(atValue: strSearch).queryEnding(atValue: strSearch + "\u{f8ff}").observeSingleEvent(of: .value, with: { (snapshot) in
+            let strSearch = self.emailTextField.text!
+            ref.child("email").queryOrdered(byChild:  "email").queryStarting(atValue: strSearch).queryEnding(atValue: strSearch + "\u{f8ff}").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.exists() {
-                    let alertController = UIAlertController(title: "Error", message: "Username already taken", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Error", message: "Email already taken", preferredStyle: .alert)
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
@@ -56,11 +54,10 @@ class RegisterViewController: UIViewController {
                     print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     self.ref.child("users").child(user!.uid).setValue([
-                        "username"      : self.nameTextField.text,
-                        "address"       : self.addressTextField.text,
                         "email"         : self.emailTextField.text,
-                        "friends"       : nil,
-                        "active-group"  : nil])
+                        "age"           : nil,
+                        "weight"        : nil,
+                        "activity"      : nil])
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)

@@ -18,20 +18,34 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     struct User {
         var name = String()
-        var uid = String()
         var address = String()
         
     }
-    
+    let ref = Database.database().reference(withPath: "users")
     var filteredUsers = [User]()
-    var users = [User(name: "Niko", uid: "ausdfhajksfjkas", address: "Peer Tutor Area"),
-                 User(name: "Kate", uid: "ausdfhajksfjkas", address: "Boston Pizza"),
-                 User(name: "Vincent", uid: "adsfasdfads", address: "Garbage Island"),
-                 User(name: "Dan", uid: "asdhfjkasd", address: "Shane's House")]
+    var users = [User]()
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref.observe(.value, with: { snapshot in
+            // 2
+            var newUsers = [User]()
+            
+            // 3
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                let value = rest.value as? NSDictionary
+                let name = value?["username"] as? String ?? ""
+                let address = value?["address"] as? String ?? ""
+                let newUser = User(name: name, address: address)
+                newUsers.append(newUser)
+            }
+            
+            // 5
+            self.users = newUsers
+            self.filteredUsers = self.users
+            self.tableView.reloadData()
+        });
         filteredUsers = users
         
         tableView.dataSource = self
@@ -47,10 +61,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func updateSearchResults(for searchController: UISearchController) {
         // If we haven't typed anything into the search bar then do not filter the results
         if searchController.searchBar.text! == "" {
-            filteredUsers = users
+            self.filteredUsers = self.users
         } else {
             // Filter the results
-            filteredUsers = users.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+            self.filteredUsers = self.users.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased()) }
         }
         
         self.tableView.reloadData()
@@ -61,6 +75,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(self.filteredUsers.count)
         return self.filteredUsers.count
     }
     

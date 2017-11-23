@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_WheresDanVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_WheresDanVersionString[];
+FOUNDATION_EXPORT double Pods_EatSomethingVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_EatSomethingVersionString[];
 
