@@ -80,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="resultsView" destination="sNa-0U-d5Y" id="XOW-00-Hfk"/>
+                        <segue destination="Nvs-4w-3Ol" kind="presentation" identifier="LoadingToRecipe" id="eT7-Vz-JDL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yo-hM-6k7" userLabel="First Responder" sceneMemberID="firstResponder"/>

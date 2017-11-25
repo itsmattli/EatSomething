@@ -19,36 +19,15 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let searchController = UISearchController(searchResultsController: nil)
     
     
-    struct User {
-        var email = String()
-        
-    }
-    let ref = Database.database().reference(withPath: "users")
-    var filteredUsers = [User]()
-    var users = [User]()
+    var filteredRecipes = [Recipe]()
+    var recipes = [Recipe]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("scene loaded")
-        ref.observe(.value, with: { snapshot in
-            // 2
-            var newUsers = [User]()
-            
-            // 3
-            for rest in snapshot.children.allObjects as! [DataSnapshot] {
-                let value = rest.value as? NSDictionary
-                let email = value?["email"] as? String ?? ""
-                let newUser = User(email: email)
-                newUsers.append(newUser)
-            }
-            
-            // 5
-            self.users = newUsers
-            self.filteredUsers = self.users
-            self.tableView.reloadData()
-        });
-        filteredUsers = users
+        
+        self.filteredRecipes = self.recipes
+        self.tableView.reloadData()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -63,10 +42,10 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func updateSearchResults(for searchController: UISearchController) {
         // If we haven't typed anything into the search bar then do not filter the results
         if searchController.searchBar.text! == "" {
-            self.filteredUsers = self.users
+            self.filteredRecipes = self.recipes
         } else {
             // Filter the results
-            self.filteredUsers = self.users.filter { $0.email.lowercased().contains(searchController.searchBar.text!.lowercased()) }
+            self.filteredRecipes = self.recipes.filter { $0.label.lowercased().contains(searchController.searchBar.text!.lowercased()) }
         }
         
         self.tableView.reloadData()
@@ -77,14 +56,13 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(self.filteredUsers.count)
-        return self.filteredUsers.count
+        return self.filteredRecipes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell     {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = self.filteredUsers[indexPath.row].email
+        cell.textLabel?.text = self.filteredRecipes[indexPath.row].label
         
         return cell
     }
