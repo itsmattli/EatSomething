@@ -58,6 +58,7 @@ class RegisterViewController: UIViewController {
                         "age"           : nil,
                         "gender"        : nil,
                         "weight"        : nil,
+                        "height"        : nil,
                         "activity"      : nil])
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")

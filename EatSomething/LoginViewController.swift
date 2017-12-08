@@ -83,6 +83,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(Auth.auth().currentUser != nil) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+            self.present(vc!, animated: true, completion: nil)
+        }
 
         // Do any additional setup after loading the view.
     }
