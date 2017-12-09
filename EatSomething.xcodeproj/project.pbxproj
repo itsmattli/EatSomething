@@ -12,6 +12,8 @@
 		0A6CA44E1F9966FE001ECAC5 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CA44D1F9966FE001ECAC5 /* ForgotViewController.swift */; };
 		0A6CA4501F99670D001ECAC5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6CA44F1F99670D001ECAC5 /* RegisterViewController.swift */; };
 		0A77C40B1FDA4535009A637B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77C40A1FDA4535009A637B /* GoogleService-Info.plist */; };
+		0AA08F0A1FDB3A1000714CB6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA08F091FDB3A1000714CB6 /* DetailViewController.swift */; };
+		0AA08F4A1FDB7ABD00714CB6 /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA08F491FDB7ABD00714CB6 /* IngredientViewController.swift */; };
 		0AC8EA591F981ADB005F2B2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA581F981ADB005F2B2E /* AppDelegate.swift */; };
 		0AC8EA5B1F981ADB005F2B2E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA5A1F981ADB005F2B2E /* FirstViewController.swift */; };
 		0AC8EA5D1F981ADB005F2B2E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC8EA5C1F981ADB005F2B2E /* ProfileController.swift */; };
@@ -29,6 +31,8 @@
 		0A6CA44D1F9966FE001ECAC5 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		0A6CA44F1F99670D001ECAC5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0A77C40A1FDA4535009A637B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0AA08F091FDB3A1000714CB6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0AA08F491FDB7ABD00714CB6 /* IngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
 		0AC8EA551F981ADB005F2B2E /* EatSomething.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EatSomething.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AC8EA581F981ADB005F2B2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC8EA5A1F981ADB005F2B2E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				0A5A64E31F9A7A2000A783DC /* SearchViewController.swift */,
 				0AD055891FC66A50000869E1 /* RecipeViewController.swift */,
 				0AD055931FC6757F000869E1 /* LoadingViewController.swift */,
+				0AA08F091FDB3A1000714CB6 /* DetailViewController.swift */,
+				0AA08F491FDB7ABD00714CB6 /* IngredientViewController.swift */,
 			);
 			path = EatSomething;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EatSomething/Pods-EatSomething-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -255,6 +262,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -284,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA08F4A1FDB7ABD00714CB6 /* IngredientViewController.swift in Sources */,
 				0A6CA44C1F99655F001ECAC5 /* LoginViewController.swift in Sources */,
 				0A5A64E41F9A7A2000A783DC /* SearchViewController.swift in Sources */,
 				0AC8EA5D1F981ADB005F2B2E /* ProfileController.swift in Sources */,
@@ -291,6 +300,7 @@
 				0A6CA4501F99670D001ECAC5 /* RegisterViewController.swift in Sources */,
 				0AD055941FC6757F000869E1 /* LoadingViewController.swift in Sources */,
 				0AD0558A1FC66A50000869E1 /* RecipeViewController.swift in Sources */,
+				0AA08F0A1FDB3A1000714CB6 /* DetailViewController.swift in Sources */,
 				0A6CA44E1F9966FE001ECAC5 /* ForgotViewController.swift in Sources */,
 				0AC8EA5B1F981ADB005F2B2E /* FirstViewController.swift in Sources */,
 			);

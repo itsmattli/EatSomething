@@ -15,6 +15,8 @@ struct Recipe {
     var image: String
     var url: String
     var calories: Double
+    var yield: Double
+    var ingredients: JSON
 }
 
 class LoadingViewController: UIViewController {
@@ -35,13 +37,28 @@ class LoadingViewController: UIViewController {
             .responseJSON { response in // 1
                 let data = JSON(response.result.value as Any)
                 let hits = data["hits"]
+                
+                if (data["hits"].count == 0) {
+                    let alertController = UIAlertController(title: "Error", message: "No results found.", preferredStyle: .alert)
+                    
+                    alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action: UIAlertAction!) in
+                        self.performSegue(withIdentifier: "loadingToSearch", sender: self)
+                    }))
+                
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                
+                
                 var searchedRecipes = [Recipe]()
                 for hit in hits.arrayValue {
                     let newRec = Recipe(
                         label: hit["recipe"]["label"].string!,
                         image: hit["recipe"]["image"].string!,
                         url: hit["recipe"]["url"].string!,
-                        calories: hit["recipe"]["calories"].double!)
+                        calories: hit["recipe"]["calories"].double!,
+                        yield: hit["recipe"]["yield"].double ?? 1,
+                        ingredients: hit["recipe"]["ingredients"])
                     searchedRecipes.append(newRec);
                 }
                 self.recipes = searchedRecipes

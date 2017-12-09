@@ -50,8 +50,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             // Get user value
             let value = snapshot.value as? NSDictionary
             
-            print(value)
-            
             let age = value?["age"] as? Int ?? 25
             self.ageLabel.text = "Age: \(age)"
             self.ageSlider.value = Float(age)

@@ -8,6 +8,7 @@ target 'EatSomething' do
   # Pods for WheresDan
   
   pod 'Alamofire', '~> 4.5'
+  pod 'AlamofireImage', '~> 3.3'
   pod 'SwiftyJSON'
   pod 'SwiftFormat/CLI'
   pod 'Firebase/Core'

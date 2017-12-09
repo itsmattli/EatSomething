@@ -21,6 +21,7 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var filteredRecipes = [Recipe]()
     var recipes = [Recipe]()
+    var selectedIndex = 0;
     
     
     override func viewDidLoad() {
@@ -67,8 +68,25 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Row \(indexPath.row) selected")
+        self.selectedIndex = indexPath.row
+        performSegue(withIdentifier: "recipeToDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        
+        if (segue.identifier == "recipeToDetail") {
+            // initialize new view controller and cast it as your view controller
+            let detail = segue.destination as! DetailViewController
+            // your new view controller should have property that will store passed value
+            print("recipe")
+            print(selectedIndex)
+            print(self.filteredRecipes[selectedIndex])
+            detail.recipe = self.filteredRecipes[selectedIndex]
+        } else {
+            print("segue didn't match")
+        }
     }
 }
 

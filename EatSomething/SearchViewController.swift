@@ -6,13 +6,17 @@
 //  Copyright © 2017 Matthew Li. All rights reserved.
 //
 import UIKit
+import Firebase
 import FirebaseDatabase
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var queryText: UITextField!
+    let uid:String = Auth.auth().currentUser!.uid
+    var ref = Database.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        checkUserProfile()
     }
     
     @IBAction func searchClicked(_ sender: Any) {
@@ -28,6 +32,28 @@ class SearchViewController: UIViewController {
 
         }
     }
+    
+    func checkUserProfile() {
+        ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            if let value = snapshot.value as? NSDictionary {
+                if (value["age"] == nil
+                    || value["height"] == nil
+                    || value["weight"] == nil
+                    || value["activity"] == nil) {
+                        let alertController = UIAlertController(title: "Set Profile Information", message: "Please set your profile information before searching!", preferredStyle: .alert)
+                        
+                        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action: UIAlertAction!) in
+                            self.performSegue(withIdentifier: "searchToProfile", sender: self)
+                        }))
+                        
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        })
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "SearchToLoading") {
