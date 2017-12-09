@@ -51,7 +51,6 @@ class RegisterViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
-                    print("You have successfully signed up")
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     self.ref.child("users").child(user!.uid).setValue([
                         "email"         : self.emailTextField.text,

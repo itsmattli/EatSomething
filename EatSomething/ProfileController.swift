@@ -94,7 +94,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func genderChanged(_ sender: UISwitch) {
-        print(isFemale.isOn)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -126,7 +125,6 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     @IBAction func saveClicked(_ sender: Any) {
         let gender = self.isFemale.isOn ? "F" : "M"
-        print(self.exercisePicker)
         self.ref.child("users").child(uid).setValue([
             "age"           : Int(self.ageSlider.value),
             "gender"        : gender,
@@ -134,6 +132,11 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             "height"        : Int(self.heightSlider.value),
             "activity"      : self.selected
         ])
+        let alertController = UIAlertController(title: "Success", message: "Profile Information Saved!", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

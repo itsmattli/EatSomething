@@ -80,9 +80,6 @@ class RecipeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // initialize new view controller and cast it as your view controller
             let detail = segue.destination as! DetailViewController
             // your new view controller should have property that will store passed value
-            print("recipe")
-            print(selectedIndex)
-            print(self.filteredRecipes[selectedIndex])
             detail.recipe = self.filteredRecipes[selectedIndex]
         } else {
             print("segue didn't match")

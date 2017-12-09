@@ -32,9 +32,6 @@ class LoginViewController: UIViewController {
                 
                 if error == nil {
                     
-                    //Print into the console if successfully logged in
-                    print("You have successfully logged in")
-                    
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
@@ -53,7 +50,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    //THIS IS HOW YOU LOGOUT
+//    Logout
 //    func logOutAction(sender: AnyObject) {
 //        if Auth.auth().currentUser != nil {
 //            do {
