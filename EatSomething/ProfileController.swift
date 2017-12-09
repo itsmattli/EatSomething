@@ -138,5 +138,17 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Reachability.isConnectedToNetwork(){
+        } else {
+            // Alert the user that there is no internet connection
+            let alert = UIAlertController(title: "No Internet Connection!", message: "App may not function properly", preferredStyle: UIAlertControllerStyle.alert)
+
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 

@@ -23,6 +23,7 @@ class IngredientViewController: UIViewController, UITableViewDataSource, UITable
     let uid:String = Auth.auth().currentUser!.uid
     var ref = Database.database().reference()
     var recipe:Recipe?
+    var url:String?
     var age:Int?
     var gender:String?
     var weight:Int?
@@ -62,6 +63,11 @@ class IngredientViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    @IBAction func linkClicked(_ sender: Any) {
+        if let url = URL(string: self.url!) {
+            UIApplication.shared.open(url, options: [ : ], completionHandler: nil)
+        }
+    }
     
     func calculate() {
         ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -132,6 +138,7 @@ class IngredientViewController: UIViewController, UITableViewDataSource, UITable
     
     func processDisplay() {
         if let recipe = self.recipe {
+            self.url = recipe.url
             let calPerYield = Double(recipe.calories)/Double(recipe.yield)
             var mealRatio = self.mealCal! / calPerYield
             print(self.mealCal)
@@ -144,7 +151,7 @@ class IngredientViewController: UIViewController, UITableViewDataSource, UITable
             var newIngredients = [Ingredient]()
             
             for ingredient in recipe.ingredients.arrayValue {
-                let ingredientWeight = Int(Double(ingredient["weight"].int!) / recipe.yield  * mealRatio)
+                let ingredientWeight = Int(Double(ingredient["weight"].int!) / recipe.yield  * mealRatio * 5)
                 let ingredientName = ingredient["food"].string!
                 let ingredientText = ingredient["text"].string!
                 let newIngredient = Ingredient(name: ingredientName, weight: ingredientWeight, text: ingredientText)
@@ -154,14 +161,17 @@ class IngredientViewController: UIViewController, UITableViewDataSource, UITable
             tableView.reloadData()
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if Reachability.isConnectedToNetwork(){
+        } else {
+            // Alert the user that there is no internet connection
+            let alert = UIAlertController(title: "No Internet Connection!", message: "App may not function properly", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    */
 
 }
