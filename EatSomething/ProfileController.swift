@@ -134,7 +134,10 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         ])
         let alertController = UIAlertController(title: "Success", message: "Profile Information Saved!", preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: {(action: UIAlertAction!) in
+            self.performSegue(withIdentifier: "profileToSearch", sender: self)
+        }))
+        
         
         self.present(alertController, animated: true, completion: nil)
     }

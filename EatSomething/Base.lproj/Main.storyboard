@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="SearchViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Rh3-E3-L5A">
-                                <rect key="frame" x="0.0" y="170" width="375" height="347"/>
+                                <rect key="frame" x="0.0" y="170" width="375" height="298"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search For A Recipe To Meal-Prep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zh2-Kh-g6q">
                                         <rect key="frame" x="56.5" y="0.0" width="262" height="20.5"/>
@@ -29,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XXw-ND-ggN">
-                                        <rect key="frame" x="87.5" y="154" width="200" height="30"/>
+                                        <rect key="frame" x="87.5" y="129.5" width="200" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Cq9-pg-mRQ"/>
                                         </constraints>
@@ -38,7 +38,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgk-J5-w3i">
-                                        <rect key="frame" x="163.5" y="317" width="48" height="30"/>
+                                        <rect key="frame" x="163.5" y="268" width="48" height="30"/>
                                         <state key="normal" title="Search"/>
                                         <connections>
                                             <action selector="searchClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="0tI-e6-oAk"/>
@@ -56,10 +56,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Search" image="first" id="acW-dT-cKf"/>
+                    <navigationItem key="navigationItem" id="hUv-F7-ZiU"/>
                     <connections>
                         <outlet property="queryText" destination="XXw-ND-ggN" id="y08-nB-n8H"/>
-                        <segue destination="4eU-oM-uyu" kind="presentation" identifier="SearchToLoading" id="O0a-R1-JeB"/>
+                        <segue destination="4eU-oM-uyu" kind="show" identifier="SearchToLoading" id="O0a-R1-JeB"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="searchToProfile" id="J1e-gu-g8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -90,10 +93,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="xzV-F4-Tmg"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="resultsView" destination="sNa-0U-d5Y" id="XOW-00-Hfk"/>
-                        <segue destination="Nvs-4w-3Ol" kind="presentation" identifier="LoadingToRecipe" id="eT7-Vz-JDL"/>
-                        <segue destination="9pv-A4-QxB" kind="presentation" identifier="loadingToSearch" id="TTL-45-e5a"/>
+                        <segue destination="Nvs-4w-3Ol" kind="show" identifier="LoadingToRecipe" id="eT7-Vz-JDL"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loadingToSearch" id="B0v-mc-1wh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Yo-hM-6k7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,19 +126,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mr3-qs-qKd"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="tableView" destination="0yE-HQ-3JM" id="zqD-ny-Dww"/>
-                        <segue destination="E7R-sW-X5A" kind="presentation" identifier="recipeToDetail" id="Fau-Y2-KV4"/>
+                        <segue destination="E7R-sW-X5A" kind="show" identifier="recipeToDetail" id="Fau-Y2-KV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAx-UP-Rx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2322" y="-322"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--detailToSearch-->
         <scene sceneID="6jU-J6-yuD">
             <objects>
-                <viewController id="E7R-sW-X5A" customClass="DetailViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="detailToSearch" id="E7R-sW-X5A" customClass="DetailViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qny-HN-gPb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,27 +192,28 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vIe-D0-zF1"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="calories" destination="JEZ-hP-Z3e" id="j6C-GM-tOb"/>
                         <outlet property="recipeImage" destination="Jf1-Gf-Mcv" id="sl2-gf-Oq7"/>
                         <outlet property="recipeName" destination="0pK-5D-LAX" id="HvY-Ij-RMu"/>
-                        <segue destination="4eU-oM-uyu" kind="presentation" identifier="detailToSearch" id="jop-eA-3Cb"/>
-                        <segue destination="AqH-JC-Sbm" kind="presentation" identifier="detailToIngredients" id="oQ3-7k-s55"/>
+                        <segue destination="AqH-JC-Sbm" kind="show" identifier="detailToIngredients" id="oQ3-7k-s55"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="detailToSearch" id="c25-VG-CsE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9O-bo-ebb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3157.5999999999999" y="-311.69415292353824"/>
         </scene>
-        <!--Ingredient View Controller-->
+        <!--ingredientsToSearch-->
         <scene sceneID="5Al-JO-Uum">
             <objects>
-                <viewController id="AqH-JC-Sbm" customClass="IngredientViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ingredientsToSearch" id="AqH-JC-Sbm" customClass="IngredientViewController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vjv-a6-0QP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2iw-pp-Aef">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2iw-pp-Aef">
                                 <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-XR-41U">
@@ -232,7 +238,7 @@
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="470"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="AGy-Lc-l6f" customClass="IngredientTableViewCell" customModule="EatSomething" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" id="AGy-Lc-l6f" customClass="IngredientTableViewCell" customModule="EatSomething" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AGy-Lc-l6f" id="HLw-fu-otu" customClass="IngredientTableViewCell" customModule="EatSomething" customModuleProvider="target">
@@ -254,7 +260,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTo-hG-YNU">
-                                                            <rect key="frame" x="78" y="0.0" width="345" height="20.5"/>
+                                                            <rect key="frame" x="-32" y="0.0" width="345" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -285,6 +291,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="ogU-XC-g3g" firstAttribute="top" secondItem="IUt-AJ-m4e" secondAttribute="bottom" id="1Re-8Z-6I1"/>
+                                    <constraint firstAttribute="trailing" secondItem="ogU-XC-g3g" secondAttribute="trailing" id="7iR-4W-bJk"/>
+                                    <constraint firstItem="ogU-XC-g3g" firstAttribute="leading" secondItem="2iw-pp-Aef" secondAttribute="leadingMargin" id="Df5-gL-ng0"/>
+                                    <constraint firstItem="ogU-XC-g3g" firstAttribute="leading" secondItem="2iw-pp-Aef" secondAttribute="leading" id="KwD-BE-dsT"/>
+                                    <constraint firstItem="sTJ-E1-RAt" firstAttribute="top" secondItem="ogU-XC-g3g" secondAttribute="bottom" id="UAo-RU-asU"/>
+                                    <constraint firstItem="ogU-XC-g3g" firstAttribute="trailing" secondItem="2iw-pp-Aef" secondAttribute="trailingMargin" id="b9N-6W-Jo0"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,10 +310,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9MQ-6v-iO2"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="name" destination="Nwg-XR-41U" id="xfa-BF-Aag"/>
                         <outlet property="tableView" destination="ogU-XC-g3g" id="XjU-Eh-mST"/>
-                        <segue destination="9pv-A4-QxB" kind="presentation" identifier="ingredientsToSearch" id="uEC-cj-tlW"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="ingredientsToSearch" id="50a-IB-ID6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqy-LP-b4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -311,26 +326,26 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ProfileController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFK-Ti-Ma7">
-                                <rect key="frame" x="0.0" y="40" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="558"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBA-co-W6A">
-                                        <rect key="frame" x="149.5" y="0.0" width="76.5" height="55"/>
+                                        <rect key="frame" x="149.5" y="0.0" width="76.5" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d7-Sg-JM2">
-                                        <rect key="frame" x="158" y="55" width="59" height="55.5"/>
+                                        <rect key="frame" x="158" y="50.5" width="59" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="15" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-LO-8Ef">
-                                        <rect key="frame" x="35.5" y="110.5" width="304" height="56"/>
+                                        <rect key="frame" x="35.5" y="101.5" width="304" height="51.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="pDK-2e-sxZ"/>
                                         </constraints>
@@ -339,13 +354,13 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (Pounds): 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUX-cE-KBO">
-                                        <rect key="frame" x="105" y="165.5" width="165.5" height="55"/>
+                                        <rect key="frame" x="105" y="152" width="165.5" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="70" maxValue="400" translatesAutoresizingMaskIntoConstraints="NO" id="Euy-3n-aEL">
-                                        <rect key="frame" x="35.5" y="220.5" width="304" height="56.5"/>
+                                        <rect key="frame" x="35.5" y="203" width="304" height="51.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Yle-ZZ-dCU"/>
                                         </constraints>
@@ -354,13 +369,13 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm): 175" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeK-Qh-ijC">
-                                        <rect key="frame" x="124" y="276" width="127" height="55"/>
+                                        <rect key="frame" x="124" y="253.5" width="127" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="175" minValue="145" maxValue="240" translatesAutoresizingMaskIntoConstraints="NO" id="iCz-dC-z5u">
-                                        <rect key="frame" x="35.5" y="331" width="304" height="56.5"/>
+                                        <rect key="frame" x="35.5" y="304.5" width="304" height="51.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="S5e-lZ-W89"/>
                                         </constraints>
@@ -369,22 +384,22 @@
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-3e-iof">
-                                        <rect key="frame" x="37.5" y="386.5" width="300" height="55"/>
+                                        <rect key="frame" x="37.5" y="355" width="300" height="51"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD0-IY-akP">
-                                                <rect key="frame" x="0.0" y="17" width="37" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="15" width="37" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-gG-77N">
-                                                <rect key="frame" x="121" y="12" width="51" height="31"/>
+                                                <rect key="frame" x="121" y="10" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="genderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="sLN-i7-bEu"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-tc-SxK">
-                                                <rect key="frame" x="244.5" y="17" width="55.5" height="20.5"/>
+                                                <rect key="frame" x="244.5" y="15" width="55.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -395,16 +410,16 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Often You Exercise: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-1p-4Ty">
-                                        <rect key="frame" x="91.5" y="441.5" width="192" height="55"/>
+                                        <rect key="frame" x="91.5" y="406" width="192" height="50.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAC-Fx-OVh">
-                                        <rect key="frame" x="27.5" y="496.5" width="320" height="55.5"/>
+                                        <rect key="frame" x="27.5" y="456.5" width="320" height="51"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-pZ-jol">
-                                        <rect key="frame" x="170.5" y="552" width="34" height="55"/>
+                                        <rect key="frame" x="170.5" y="507.5" width="34" height="50.5"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveClicked:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ibo-NV-Vyx"/>
@@ -422,6 +437,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="My Profile" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="ageLabel" destination="3d7-Sg-JM2" id="YZT-aV-ae0"/>
@@ -434,11 +450,12 @@
                         <outlet property="saveButton" destination="TsJ-pZ-jol" id="yb8-rM-rub"/>
                         <outlet property="weightLabel" destination="HUX-cE-KBO" id="tfY-1f-4P8"/>
                         <outlet property="weightSlider" destination="Euy-3n-aEL" id="YKJ-CC-SS4"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="profileToSearch" id="akO-VZ-5Ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="1263" y="657"/>
         </scene>
         <!--Login-->
         <scene sceneID="X8I-tD-AU3">
@@ -521,11 +538,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ISa-Ka-H7d"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="emailTextField" destination="TOS-4X-88o" id="W8n-qE-Lhd"/>
                         <outlet property="passwordTextField" destination="lpo-OQ-brD" id="jUj-mT-sG6"/>
-                        <segue destination="h0a-me-Smj" kind="presentation" identifier="LoginToForgot" id="cb5-Lk-BwP"/>
-                        <segue destination="xCi-28-R5E" kind="presentation" identifier="LoginToRegister" id="a0G-Vt-7Sm"/>
+                        <segue destination="h0a-me-Smj" kind="show" identifier="LoginToForgot" id="cb5-Lk-BwP"/>
+                        <segue destination="xCi-28-R5E" kind="show" identifier="LoginToRegister" id="a0G-Vt-7Sm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7DC-4G-HmL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -578,10 +596,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BZw-on-K38"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="K86-MK-jQ1"/>
                     <connections>
                         <outlet property="emailTextField" destination="IM9-i4-JA4" id="bp9-Hj-pcz"/>
-                        <segue destination="hIe-KF-hlR" kind="presentation" identifier="ForgotToLogin" id="KTS-jy-Cbp"/>
-                        <segue destination="8rJ-Kc-sve" kind="presentation" identifier="searchToProfile" id="C6U-R1-rWa"/>
+                        <segue destination="hIe-KF-hlR" kind="show" identifier="ForgotToLogin" id="KTS-jy-Cbp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YVf-ME-Wy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -667,11 +686,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qro-FK-5qg"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="confirmTextField" destination="Cwv-xN-tTs" id="CmG-Pr-ONy"/>
                         <outlet property="emailTextField" destination="LNe-l3-oFx" id="UwE-sy-ngj"/>
                         <outlet property="passwordTextField" destination="X1r-Fm-f3M" id="bQM-be-XKz"/>
-                        <segue destination="hIe-KF-hlR" kind="presentation" identifier="RegisterToLogin" id="gwg-DE-DmM"/>
+                        <segue destination="hIe-KF-hlR" kind="show" identifier="RegisterToLogin" id="gwg-DE-DmM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0UJ-IQ-LFJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -683,6 +703,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController storyboardIdentifier="Home" id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -704,9 +725,8 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="50a-IB-ID6"/>
         <segue reference="gwg-DE-DmM"/>
         <segue reference="lzU-1b-eKA"/>
-        <segue reference="jop-eA-3Cb"/>
-        <segue reference="uEC-cj-tlW"/>
     </inferredMetricsTieBreakers>
 </document>
