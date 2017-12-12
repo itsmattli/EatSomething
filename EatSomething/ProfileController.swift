@@ -86,7 +86,7 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     @IBAction func weightChanged(_ sender: UISlider) {
-        weightLabel.text = "Weight (Pounds): \(Int(sender.value))"
+        weightLabel.text = "Weight (pounds): \(Int(sender.value))"
     }
     
     @IBAction func heightChanged(_ sender: UISlider) {
