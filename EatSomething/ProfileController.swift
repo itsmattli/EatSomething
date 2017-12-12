@@ -59,7 +59,7 @@ class ProfileController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.heightSlider.value = Float(height)
             
             let weight = value?["weight"] as? Int ?? 100
-            self.weightLabel.text = "Age (pounds): \(weight)"
+            self.weightLabel.text = "Weight (pounds): \(weight)"
             self.weightSlider.value = Float(weight)
             
             
