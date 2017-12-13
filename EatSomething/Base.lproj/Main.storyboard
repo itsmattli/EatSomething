@@ -57,7 +57,7 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Search" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="search" selectedImage="search" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="hUv-F7-ZiU"/>
                     <connections>
                         <outlet property="queryText" destination="XXw-ND-ggN" id="y08-nB-n8H"/>
@@ -326,26 +326,26 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="ProfileController" customModule="EatSomething" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BFK-Ti-Ma7">
-                                <rect key="frame" x="0.0" y="40" width="375" height="558"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBA-co-W6A">
-                                        <rect key="frame" x="149.5" y="0.0" width="76.5" height="50.5"/>
+                                        <rect key="frame" x="149.5" y="0.0" width="76.5" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age: 25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d7-Sg-JM2">
-                                        <rect key="frame" x="158" y="50.5" width="59" height="51"/>
+                                        <rect key="frame" x="158" y="55" width="59" height="55.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="15" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-LO-8Ef">
-                                        <rect key="frame" x="35.5" y="101.5" width="304" height="51.5"/>
+                                        <rect key="frame" x="35.5" y="110.5" width="304" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="pDK-2e-sxZ"/>
                                         </constraints>
@@ -354,13 +354,13 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight (Pounds): 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUX-cE-KBO">
-                                        <rect key="frame" x="105" y="152" width="165.5" height="51"/>
+                                        <rect key="frame" x="105" y="165.5" width="165.5" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="70" maxValue="400" translatesAutoresizingMaskIntoConstraints="NO" id="Euy-3n-aEL">
-                                        <rect key="frame" x="35.5" y="203" width="304" height="51.5"/>
+                                        <rect key="frame" x="35.5" y="220.5" width="304" height="56.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="Yle-ZZ-dCU"/>
                                         </constraints>
@@ -369,13 +369,13 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height (cm): 175" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeK-Qh-ijC">
-                                        <rect key="frame" x="124" y="253.5" width="127" height="51"/>
+                                        <rect key="frame" x="124" y="276" width="127" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="175" minValue="145" maxValue="240" translatesAutoresizingMaskIntoConstraints="NO" id="iCz-dC-z5u">
-                                        <rect key="frame" x="35.5" y="304.5" width="304" height="51.5"/>
+                                        <rect key="frame" x="35.5" y="331" width="304" height="56.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="S5e-lZ-W89"/>
                                         </constraints>
@@ -384,22 +384,22 @@
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-3e-iof">
-                                        <rect key="frame" x="37.5" y="355" width="300" height="51"/>
+                                        <rect key="frame" x="37.5" y="386.5" width="300" height="55"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD0-IY-akP">
-                                                <rect key="frame" x="0.0" y="15" width="37" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="17" width="37" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-gG-77N">
-                                                <rect key="frame" x="121" y="10" width="51" height="31"/>
+                                                <rect key="frame" x="121" y="12" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="genderChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="sLN-i7-bEu"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsh-tc-SxK">
-                                                <rect key="frame" x="244.5" y="15" width="55.5" height="20.5"/>
+                                                <rect key="frame" x="244.5" y="17" width="55.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -410,16 +410,16 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Often You Exercise: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-1p-4Ty">
-                                        <rect key="frame" x="91.5" y="406" width="192" height="50.5"/>
+                                        <rect key="frame" x="91.5" y="441.5" width="192" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAC-Fx-OVh">
-                                        <rect key="frame" x="27.5" y="456.5" width="320" height="51"/>
+                                        <rect key="frame" x="27.5" y="496.5" width="320" height="55.5"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TsJ-pZ-jol">
-                                        <rect key="frame" x="170.5" y="507.5" width="34" height="50.5"/>
+                                        <rect key="frame" x="170.5" y="552" width="34" height="55"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="saveClicked:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="ibo-NV-Vyx"/>
@@ -438,7 +438,7 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="My Profile" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="profile" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="ageLabel" destination="3d7-Sg-JM2" id="YZT-aV-ae0"/>
                         <outlet property="ageSlider" destination="mZF-LO-8Ef" id="Vcn-dD-ZwU"/>
@@ -721,12 +721,12 @@
     </scenes>
     <resources>
         <image name="LogoImage" width="512" height="512"/>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="profile" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="50a-IB-ID6"/>
+        <segue reference="akO-VZ-5Ca"/>
         <segue reference="gwg-DE-DmM"/>
-        <segue reference="lzU-1b-eKA"/>
+        <segue reference="J1e-gu-g8s"/>
     </inferredMetricsTieBreakers>
 </document>
